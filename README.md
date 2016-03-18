@@ -1,2 +1,6 @@
 # NgMomentum.github.io
-NgMomentum GitHub Pages Main repository
+NgMomentum
+
+NgMomentum is a derivation of the standard 1.x version of AngularJS.
+
+
