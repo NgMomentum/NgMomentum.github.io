@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="top">
+<html>
 <head>
 
 	<meta charset="utf-8" />
@@ -9,7 +9,7 @@
 	<meta name="description" content="Open source software for the mobile web!" />
 	<meta name="author" content="Dwight Vietzke" />
 
-	<title>NgMomentum Bootstrap</title>
+	<title>NgMomentum</title>
 
     <style>
         /* Std AngularJS CSS: Load in page so cloaking starts immediately */
@@ -88,6 +88,36 @@
 		[uib-typeahead-popup].dropdown-menu {
 			display: block;
 		}
+
+		/* Page specific CSS */
+		.slide.ng-leave {
+			position: relative;
+		}
+
+		.slide.ng-enter {
+			position: absolute;
+		}
+
+		.slide.ng-enter, .slide.ng-leave {
+		  -webkit-transition: -webkit-transform 0.3s ease-in, opacity 0.3s ease-in;
+			 -moz-transition: -moz-transform 0.3s ease-in, opacity 0.3s ease-in;
+			   -o-transition: -o-transform 0.3s ease-in, opacity 0.3s ease-in;
+				  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+		}
+
+		.slide.ng-enter, .slide.ng-leave.ng-leave-active {
+		  -webkit-transform: scaleX(0.0001);
+			   -o-transform: scaleX(0.0001);
+				  transform: scaleX(0.0001);
+		  opacity: 0;
+		}
+
+		.slide, .slide.ng-enter.ng-enter-active {
+		  -webkit-transform: scaleX(1);
+			   -o-transform: scaleX(1);
+				  transform: scaleX(1);
+			opacity: 1;
+		}
     </style>
 
 	<link rel='shortcut icon' href='../ngm/images/ngm.ico' />
@@ -96,7 +126,6 @@
 	<script src="../ngm/app/config.js"></script>
 
 </head>
-
 <body class="ng-cloak">
 	<header class="navbar navbar-default navbar-fixed-top navbar-inner">
 		<div class="container">
@@ -107,51 +136,65 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand visible-xs" href="#">UI Bootstrap</a>
+				<a class="navbar-brand visible-xs" data-ui-sref="home">NgMomentum</a>
 			</div>
 			<nav id='mobile_menu' class="hidden-xs">
 				<ul class="nav navbar-nav">
 					<li>
-						<a href="#top" role="button" class="navbar-brand">UI Bootstrap</a>
+						<a data-ui-sref="home" role="button" class="navbar-brand">NgMomentum</a>
 					</li>
 					<li class="dropdown" data-uib-dropdown>
 						<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
-							Directives <b class="caret"></b>
+							NgM-UI-Bootstrap <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="#accordion">Accordion</a></li>
-							<li><a href="#alert">Alert</a></li>
-							<li><a href="#buttons">Buttons</a></li>
-							<li><a href="#carousel">Carousel</a></li>
-							<li><a href="#collapse">Collapse</a></li>
-							<li><a href="#dateparser">Dateparser</a></li>
-							<li><a href="#datepicker">Datepicker</a></li>
-							<li><a href="#datepickerpopup">Datepicker Popup</a></li>
-							<li><a href="#dropdown">Dropdown</a></li>
-							<li><a href="#modal">Modal</a></li>
-							<li><a href="#pager">Pager</a></li>
-							<li><a href="#pagination">Pagination</a></li>
-							<li><a href="#popover">Popover</a></li>
-							<li><a href="#position">Position</a></li>
-							<li><a href="#progressbar">Progressbar</a></li>
-							<li><a href="#rating">Rating</a></li>
-							<li><a href="#tabs">Tabs</a></li>
-							<li><a href="#timepicker">Timepicker</a></li>
-							<li><a href="#tooltip">Tooltip</a></li>
-							<li><a href="#typeahead">Typeahead</a></li>
+							<li><a data-ui-sref="overview">Overview</a></li>
+							<li><a data-ui-sref="accordion">Accordion</a></li>
+							<li><a data-ui-sref="alert">Alert</a></li>
+							<li><a data-ui-sref="buttons">Buttons</a></li>
+							<li><a data-ui-sref="carousel">Carousel</a></li>
+							<li><a data-ui-sref="collapse">Collapse</a></li>
+							<li><a data-ui-sref="dateparser">Dateparser</a></li>
+							<li><a data-ui-sref="datepicker">Datepicker</a></li>
+							<li><a data-ui-sref="datepickerpopup">Datepicker Popup</a></li>
+							<li><a data-ui-sref="dropdown">Dropdown</a></li>
+							<li><a data-ui-sref="modal">Modal</a></li>
+							<li><a data-ui-sref="pager">Pager</a></li>
+							<li><a data-ui-sref="pagination">Pagination</a></li>
+							<li><a data-ui-sref="popover">Popover</a></li>
+							<li><a data-ui-sref="position">Position</a></li>
+							<li><a data-ui-sref="progressbar">Progressbar</a></li>
+							<li><a data-ui-sref="rating">Rating</a></li>
+							<li><a data-ui-sref="tabs">Tabs</a></li>
+							<li><a data-ui-sref="timepicker">Timepicker</a></li>
+							<li><a data-ui-sref="tooltip">Tooltip</a></li>
+							<li><a data-ui-sref="typeahead">Typeahead</a></li>
 						</ul>
 					</li>
-					<li><a href="#welcome"><i class="fa fa-home"></i> Welcome</a></li>
 				</ul>
 			</nav>
 			<nav id='desktop_menu' class="visible-xs" data-collapse="!isCollapsed">
 				<ul class="nav navbar-nav">
-					<li><a href="#directives_small" data-ng-click="isCollapsed = !isCollapsed">Directives</a></li>
-					<li><a href="#welcome" data-ng-click="isCollapsed = !isCollapsed"><i class="fa fa-home"></i> Welcome</a></li>
+                    <li ng-class="{active: $state.includes('contacts')}">
+						<a data-ui-sref="contacts.list">Contacts</a>
+					</li>
+                    <li data-ui-sref-active="active">
+						<a data-ui-sref="about">About</a>
+					</li>
+					<li>
+						<a data-ui-sref="directives_small" data-ng-click="isCollapsed = !isCollapsed">Directives</a>
+					</li>
+					<li>
+						<a data-ui-sref="welcome" data-ng-click="isCollapsed = !isCollapsed"><i class="fa fa-home"></i> Welcome</a>
+					</li>
 				</ul>
+
+                <p data-ui-view="hint" class="navbar-text pull-right"></p>
 			</nav>
 		</div>
 	</header>
+
+<!--
 	<div class="header-placeholder"></div>
 	<div role="main">
 		<header class="bs-header text-center" id="overview">
@@ -210,21 +253,24 @@
 					<div data-ng-view></div>
 				</div>
 			</div>
-		</div><!-- /.container -->
-	</div><!-- /.main -->
+		</div>
+	</div>
+-->
+
+    <div data-ui-view class="container slide" style="padding-top: 80px;"></div>
+
+    <hr>
+    <pre>
+		$state = {{ diagnostic_state.current.name }}
+		$stateParams = {{ diagnostic_stateParams }}
+		$state full url = {{ diagnostic_state.$current.url.source }}
+    </pre>
 
 	<footer data-ng-ignore class="footer">
 		<div class="container">
-			<h3>NgMomentum is a Derivation of Angular and Angular-UI-Bootstrap</h3>
-			<p>
-				Angular-UI-Bootstrap - Designed and built by
-				<a href="https://github.com/angular-ui?tab=members" target="_blank">Angular-UI team</a> and
-				<a href="https://github.com/angular-ui/bootstrap/graphs/contributors" target="_blank">contributors</a>.
-			</p>
-			<p>
-				Angular-UI-Bootstrap - Code licensed under
-				<a href="https://github.com/angular-ui/bootstrap/blob/master/LICENSE">MIT License</a>.
-			</p>
+			<h3>NgMomentum - a Derivation of Angular</h3>
+			<p>Angular - <a href="https://github.com/angular/angular.js/blob/master/LICENSE">MIT License</a>.</p>
+			<p>Angular-UI-Bootstrap - <a href="https://github.com/angular-ui/bootstrap/blob/master/LICENSE">MIT License</a>.</p>
 		</div>
 	</footer>
 
@@ -233,9 +279,9 @@
 			function () {
 				"use strict";
 	
-				msos.console.info('Page bootstrap.html loaded!');
+				msos.console.info('Page index.html loaded!');
 
-				msos.require("app.bootstrap.start");
+				msos.require("app.start");
 			}
 		);
 	</script>
