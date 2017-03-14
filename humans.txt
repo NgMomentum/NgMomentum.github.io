@@ -3,8 +3,8 @@
 
 # TEAM
 
-    Name: OpenSiteMobile
-    Site: http://opensitemobile.github.io
+    Name: NgMomentum
+    Site: http://ngmomentum.github.io
     Twitter:
     Location:
     Email: dwight_vietzke@yahoo.com
@@ -17,7 +17,7 @@
 
 # SITE
 
-    Last update: Date 1-17-2016
+    Last update: Date 3-14-2017
     Language: English
     Doctype: HTML5
 
@@ -25,6 +25,6 @@
 # TECHNOLOGY COLOPHON
 
     Standards: HTML5, CSS3
-    Components: Modernizr, jQuery, jQueryUI, UnderscoreJS, Bootstrap, BackboneJS, AngularJS
-    Software: MobileSiteOS
+    Components: Modernizr, jQuery, UnderscoreJS, Bootstrap, AngularJS
+    Software: MobileSiteOS, NgMomentum
     Programming Languages: JavaScript

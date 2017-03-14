@@ -1,4 +1,4 @@
 User-Agent: *
 Disallow: 
 
-Sitemap: http://ngmonemtum.com/sitemap.xml
+Sitemap: https://ngmonemtum.github.io/sitemap.xml

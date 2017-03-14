@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
 
+<head>
 	<meta charset="utf-8" />
 	<meta name="handheldfriendly" content="true" />
 	<meta name="mobileoptimized"  content="width" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Open source software for the mobile web!" />
 	<meta name="author" content="Dwight Vietzke" />
 
@@ -13,30 +13,93 @@
 
     <style>
         /* Std AngularJS CSS: Load in page so cloaking starts immediately */
-        [ng\:cloak],
 		[ng-cloak],
 		[data-ng-cloak],
 		[x-ng-cloak],
 		.ng-cloak,
-		.x-ng-cloak,
 		.ng-hide:not(.ng-hide-animate) {
 			display: none !important;
 		}
-
 		ng\:form {
 			display: block;
 		}
-
-        .ng-cloak {
-            opacity: 0;
-        }
-
+		.ng-cloak {
+			opacity: 0;
+		}
 		.ng-animate-shim{
 			visibility:hidden;
 		}
-
 		.ng-anchor{
 			position:absolute;
+		}
+
+		/* Std MSOS CSS: notify popup */
+		#notify_container {
+			position: absolute;
+			width: 18em;
+			z-index: 9999;
+		}
+		.notify {
+			background-color: #111;
+			border-radius: 0.4em;
+			margin-bottom: 1em;
+			opacity: 0.9;
+			padding: 1.2em;
+		}
+		.notify:hover {
+			opacity: 1;
+		}
+		.notify_title {
+			font-weight: bold;
+		}
+		.notify_title,
+		.notify_msg {
+			color: #FFF;
+			font-size: larger;
+			margin-bottom: 0.4em;
+			padding: 0 0.4em;
+		}
+		.notify > i {
+			float: left;
+		}
+		.notify_display > button {
+			float: right;
+		}
+		.notify > i.info {
+			color: blue;
+		}
+		.notify > i.warning {
+			color: yellow;
+		}
+		.notify > i.error {
+			color: red;
+		}
+		.notify > i.success {
+			color: green;
+		}
+		.notify > i.loading {
+			color: orange;
+		}
+		.notify {
+			-webkit-box-shadow: 0 0 12px #999;
+					box-shadow: 0 0 12px #999;
+		}
+		.notify:hover {
+			-webkit-box-shadow: 0 0 12px #000;
+					box-shadow: 0 0 12px #000;
+		}
+
+		/* Std MSOS CSS: No JavaScript message */
+		#no_javascript {
+			background-color: #FFF;
+			border: 2px solid #999;
+			border-radius: 0.4em;
+			margin-left: auto;
+			margin-right: auto;
+			width: 60%;
+		}
+		#no_javascript > i {
+			color: red;
 		}
 
 		/* Std Angular-UI-Bootstrap specific CSS (ref. ng/bootstrap/css/ui/...module-name for specific modules) */
@@ -47,7 +110,6 @@
 			top: -9999px !important;
 			left: -9999px !important;
 		}
-
 		.uib-position-scrollbar-measure{
 			position: absolute;
 			top: -9999px;
@@ -55,63 +117,56 @@
 			height: 50px;
 			overflow: scroll;
 		}
-
 		.uib-datepicker .uib-title {
 			width: 100%;
 		}
-
 		.uib-day button,
 		.uib-month button,
 		.uib-year button {
 			min-width: 100%;
 		}
-
 		.uib-datepicker-popup.dropdown-menu {
 			display: block;
 			float: none;
 			margin: 0;
 		}
-
 		.uib-button-bar {
 			padding: 10px 9px 2px;
 		}
-
 		.uib-left,
 		.uib-right {
 			width: 100%;
 		}
-
 		.uib-time input{
 			width: 50px;
 		}
-
 		[uib-typeahead-popup].dropdown-menu {
 			display: block;
 		}
 
 		/* Page specific CSS */
+		#ui_view {
+			padding-top: 70px;
+		}
+
 		.slide.ng-leave {
 			position: relative;
 		}
-
 		.slide.ng-enter {
 			position: absolute;
 		}
-
 		.slide.ng-enter, .slide.ng-leave {
 		  -webkit-transition: -webkit-transform 0.3s ease-in, opacity 0.3s ease-in;
 			 -moz-transition: -moz-transform 0.3s ease-in, opacity 0.3s ease-in;
 			   -o-transition: -o-transform 0.3s ease-in, opacity 0.3s ease-in;
 				  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
 		}
-
 		.slide.ng-enter, .slide.ng-leave.ng-leave-active {
 		  -webkit-transform: scaleX(0.0001);
 			   -o-transform: scaleX(0.0001);
 				  transform: scaleX(0.0001);
 		  opacity: 0;
 		}
-
 		.slide, .slide.ng-enter.ng-enter-active {
 		  -webkit-transform: scaleX(1);
 			   -o-transform: scaleX(1);
@@ -120,165 +175,131 @@
 		}
     </style>
 
-	<link rel='shortcut icon' href='../ngm/images/ngm.ico' />
+	<link rel='shortcut icon' href='./ngm/images/ngm.ico' />
 
-	<script src="../ngm/msos/base.min.js"></script>
-	<script src="../ngm/app/config.js"></script>
+	<script src="./ngm/msos/base.min.js"></script>
+	<script src="./ngm/app/config.js"></script>
 
 </head>
-<body class="ng-cloak">
-	<header class="navbar navbar-default navbar-fixed-top navbar-inner">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" data-ng-click="isCollapsed = !isCollapsed">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand visible-xs" data-ui-sref="home">NgMomentum</a>
-			</div>
-			<nav id='mobile_menu' class="hidden-xs">
-				<ul class="nav navbar-nav">
-					<li>
-						<a data-ui-sref="home" role="button" class="navbar-brand">NgMomentum</a>
-					</li>
-					<li class="dropdown" data-uib-dropdown>
-						<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
-							NgM-UI-Bootstrap <b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a data-ui-sref="overview">Overview</a></li>
-							<li><a data-ui-sref="accordion">Accordion</a></li>
-							<li><a data-ui-sref="alert">Alert</a></li>
-							<li><a data-ui-sref="buttons">Buttons</a></li>
-							<li><a data-ui-sref="carousel">Carousel</a></li>
-							<li><a data-ui-sref="collapse">Collapse</a></li>
-							<li><a data-ui-sref="dateparser">Dateparser</a></li>
-							<li><a data-ui-sref="datepicker">Datepicker</a></li>
-							<li><a data-ui-sref="datepickerpopup">Datepicker Popup</a></li>
-							<li><a data-ui-sref="dropdown">Dropdown</a></li>
-							<li><a data-ui-sref="modal">Modal</a></li>
-							<li><a data-ui-sref="pager">Pager</a></li>
-							<li><a data-ui-sref="pagination">Pagination</a></li>
-							<li><a data-ui-sref="popover">Popover</a></li>
-							<li><a data-ui-sref="position">Position</a></li>
-							<li><a data-ui-sref="progressbar">Progressbar</a></li>
-							<li><a data-ui-sref="rating">Rating</a></li>
-							<li><a data-ui-sref="tabs">Tabs</a></li>
-							<li><a data-ui-sref="timepicker">Timepicker</a></li>
-							<li><a data-ui-sref="tooltip">Tooltip</a></li>
-							<li><a data-ui-sref="typeahead">Typeahead</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-			<nav id='desktop_menu' class="visible-xs" data-collapse="!isCollapsed">
-				<ul class="nav navbar-nav">
-                    <li ng-class="{active: $state.includes('contacts')}">
-						<a data-ui-sref="contacts.list">Contacts</a>
-					</li>
-                    <li data-ui-sref-active="active">
-						<a data-ui-sref="about">About</a>
-					</li>
-					<li>
-						<a data-ui-sref="directives_small" data-ng-click="isCollapsed = !isCollapsed">Directives</a>
-					</li>
-					<li>
-						<a data-ui-sref="welcome" data-ng-click="isCollapsed = !isCollapsed"><i class="fa fa-home"></i> Welcome</a>
-					</li>
-				</ul>
+<body>
 
-                <p data-ui-view="hint" class="navbar-text pull-right"></p>
-			</nav>
-		</div>
-	</header>
+	<noscript>
+		<h3 id="no_javascript">
+			<i class="fa fa-ban"></i> We're sorry, but this site requires JavaScript be enabled!
+		</h3>
+	</noscript>
 
-<!--
-	<div class="header-placeholder"></div>
-	<div role="main">
-		<header class="bs-header text-center" id="overview">
+	<div id='body' class="ng-cloak">
+		<header class="navbar navbar-default navbar-fixed-top navbar-inner">
 			<div class="container">
-				<div data-ng-ignore>
-					<h1>UI Bootstrap</h1>
-
-					<p>
-						Bootstrap components written in pure <a href="http://angularjs.org">AngularJS</a> by the
-						<a href="http://angular-ui.github.io">AngularUI Team</a></p>
-					<p>
-					<p style="font-size: medium;">
-						This is a highly modified version of the page found at <a href="http://angular-ui.github.io/bootstrap/">AngularJS-Bootstrap</a>.
-						It fully incorporates our MobileSiteOS version of AngularJS and MobileSiteOS module loading and control. It also uses
-						our modularized version of Angular-Bootstrap. Thus, this page is a more complete example of how we use MobileSiteOS to
-						control javascript functionality in a single page application. As demonstrated here, AngularJS can easily be
-						integrated into this process with near identical (better?) results.
-					</p>
-					<p style="font-size: medium;">
-						It is important to note that now the base page is very small. Page content and JavaScript (including AngularJS and
-						application modules) are now being loaded on an "as needed" basis, so the initial page load is very fast, relative to the
-						original page. Approximately one-third the initial load time. It also makes this SPA much cleaner and easier to maintain. Plus
-						there is virtually no limit to the AngularJS controlled page content which could be injected and presented.
-					</p>
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" data-ng-click="isCollapsed = !isCollapsed">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand visible-xs" data-ui-sref="home">NgMomentum</a>
 				</div>
+				<nav id='mobile_menu' class="hidden-xs">
+					<ul class="nav navbar-nav">
+						<li>
+							<a data-ui-sref="home" role="button" class="navbar-brand">NgMomentum</a>
+						</li>
+						<li class="dropdown" data-uib-dropdown>
+							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
+								NgM-UI-Bootstrap <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a data-ui-sref="overview">Overview</a></li>
+								<li><a data-ui-sref="accordion">Accordion</a></li>
+								<li><a data-ui-sref="alert">Alert</a></li>
+								<li><a data-ui-sref="buttons">Buttons</a></li>
+								<li><a data-ui-sref="carousel">Carousel</a></li>
+								<li><a data-ui-sref="collapse">Collapse</a></li>
+								<li><a data-ui-sref="dateparser">Dateparser</a></li>
+								<li><a data-ui-sref="datepicker">Datepicker</a></li>
+								<li><a data-ui-sref="datepickerpopup">Datepicker Popup</a></li>
+								<li><a data-ui-sref="dropdown">Dropdown</a></li>
+								<li><a data-ui-sref="modal">Modal</a></li>
+								<li><a data-ui-sref="pager">Pager</a></li>
+								<li><a data-ui-sref="pagination">Pagination</a></li>
+								<li><a data-ui-sref="popover">Popover</a></li>
+								<li><a data-ui-sref="position">Position</a></li>
+								<li><a data-ui-sref="progressbar">Progressbar</a></li>
+								<li><a data-ui-sref="rating">Rating</a></li>
+								<li><a data-ui-sref="tabs">Tabs</a></li>
+								<li><a data-ui-sref="timepicker">Timepicker</a></li>
+								<li><a data-ui-sref="tooltip">Tooltip</a></li>
+								<li><a data-ui-sref="typeahead">Typeahead</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+				<nav id='desktop_menu' class="visible-xs" data-collapse="!isCollapsed">
+					<ul class="nav navbar-nav">
+						<li data-ng-class="{active: $state.includes('contacts')}">
+							<a data-ui-sref="contacts.list">Contacts</a>
+						</li>
+						<li data-ui-sref-active="active">
+							<a data-ui-sref="about">About</a>
+						</li>
+						<li>
+							<a data-ui-sref="directives_small" data-ng-click="isCollapsed = !isCollapsed">Directives</a>
+						</li>
+						<li>
+							<a data-ui-sref="welcome" data-ng-click="isCollapsed = !isCollapsed"><i class="fa fa-home"></i> Welcome</a>
+						</li>
+					</ul>
+					<p data-ui-view="hint" class="navbar-text pull-right"></p>
+				</nav>
 			</div>
 		</header>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<section class="bs-sidebar visible-xs" id="directives_small">
-						<h3>Directives</h3>
-						<ul class="nav bs-sidenav">
-							<li><a href="#accordion">Accordion</a></li>
-							<li><a href="#alert">Alert</a></li>
-							<li><a href="#buttons">Buttons</a></li>
-							<li><a href="#carousel">Carousel</a></li>
-							<li><a href="#collapse">Collapse</a></li>
-							<li><a href="#dateparser">Dateparser</a></li>
-							<li><a href="#datepicker">Datepicker</a></li>
-							<li><a href="#datepickerpopup">Datepicker Popup</a></li>
-							<li><a href="#dropdown">Dropdown</a></li>
-							<li><a href="#modal">Modal</a></li>
-							<li><a href="#pager">Pager</a></li>
-							<li><a href="#pagination">Pagination</a></li>
-							<li><a href="#popover">Popover</a></li>
-							<li><a href="#position">Position</a></li>
-							<li><a href="#progressbar">Progressbar</a></li>
-							<li><a href="#rating">Rating</a></li>
-							<li><a href="#tabs">Tabs</a></li>
-							<li><a href="#timepicker">Timepicker</a></li>
-							<li><a href="#tooltip">Tooltip</a></li>
-							<li><a href="#typeahead">Typeahead</a></li>
-						</ul>
-					</section>
-					<div data-ng-view></div>
-				</div>
+
+		<div id='ui_view' data-ui-view class="container slide"></div>
+
+		<pre>
+			$state name = {{ diagnostic_state.current.name }}
+			$stateParams = {{ diagnostic_stateParams }}
+			$state url = {{ diagnostic_state.$current.url.source }}
+		</pre>
+
+		<div data-ng-ignore class="well">
+
+			<p>
+				This ultra simple AngularJS page is rendered using our modified version of AngularJS.
+				It is a test page for the AngularJS "FormController" Directive.
+			</p>
+
+			<ul>
+				<li><a href="?debug=true">Debugging</a></li>
+				<li><a href="?verbose=true">Verbose Debugging</a></li>
+				<li><a href="?verbose=module">Verbose w/ Extended Module Output</a></li>
+				<li><a href="?verbose=promise">Verbose w/ Extended Promise Output</a></li>
+				<li><a href="?verbose=injector">Verbose w/ Extended Injection Output</a></li>
+				<li><a href="?verbose=compile">Verbose w/ Extended Compile Output</a></li>
+				<li><a href="?verbose=scope">Verbose w/ Extended Scope/Watch Output</a></li>
+				<li><a href="?verbose=annotate">Verbose w/ Annotate Function Output</a></li>
+				<li><a href="?verbose=events">Verbose w/ UI Events Directive's Output</a></li>
+				<li><a href="?verbose=debounce">Verbose w/ ngModel Debounce View</a></li>
+				<li><a href="?verbose=route">Verbose w/ ngRoute Enhanced Debugging</a></li>
+			</ul>
+		</div>
+
+		<footer data-ng-ignore class="footer">
+			<div class="container">
+				<h3>NgMomentum - a Derivation of Angular</h3>
+				<p>Angular - <a href="https://github.com/angular/angular.js/blob/master/LICENSE">MIT License</a>.</p>
+				<p>Angular-UI-Bootstrap - <a href="https://github.com/angular-ui/bootstrap/blob/master/LICENSE">MIT License</a>.</p>
 			</div>
-		</div>
+		</footer>
 	</div>
--->
 
-    <div data-ui-view class="container slide" style="padding-top: 80px;"></div>
-
-    <hr>
-    <pre>
-		$state = {{ diagnostic_state.current.name }}
-		$stateParams = {{ diagnostic_stateParams }}
-		$state full url = {{ diagnostic_state.$current.url.source }}
-    </pre>
-
-	<footer data-ng-ignore class="footer">
-		<div class="container">
-			<h3>NgMomentum - a Derivation of Angular</h3>
-			<p>Angular - <a href="https://github.com/angular/angular.js/blob/master/LICENSE">MIT License</a>.</p>
-			<p>Angular-UI-Bootstrap - <a href="https://github.com/angular-ui/bootstrap/blob/master/LICENSE">MIT License</a>.</p>
-		</div>
-	</footer>
-
-	<script data-ng-ignore>
+	<script>
 		msos.onload_func_pre.push(
 			function () {
 				"use strict";
-	
+
 				msos.console.info('Page index.html loaded!');
 
 				msos.require("app.start");
