@@ -136,7 +136,7 @@
 	<link rel='shortcut icon' href='./ngm/images/ngm.ico' />
 
 	<script src="./ngm/msos/base.min.js"></script>
-	<script src="./ngm/app/config.js"></script>
+	<script src="./ngm/demo/config.js"></script>
 
 </head>
 <body>
@@ -151,7 +151,7 @@
 		<header class="navbar navbar-default navbar-fixed-top navbar-inner">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" data-ng-click="isCollapsed = !isCollapsed">
+					<button type="button" class="navbar-toggle" data-uib-toggle="collapse" data-uib-target="#bs-example-navbar-collapse-3" data-ng-click="isCollapsed = !isCollapsed">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -165,11 +165,11 @@
 							<a data-ui-sref="home" role="button" class="navbar-brand">NgMomentum</a>
 						</li>
 						<li class="dropdown" data-uib-dropdown>
-							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
+							<a role="button" class="dropdown-uib-toggle" data-uib-dropdown-toggle>
 								NgM-UI-Bootstrap <b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a data-ui-sref="overview">Overview</a></li>
+								<li><a data-ui-sref="bootstrap">Overview</a></li>
 								<li><a data-ui-sref="accordion">Accordion</a></li>
 								<li><a data-ui-sref="alert">Alert</a></li>
 								<li><a data-ui-sref="buttons">Buttons</a></li>
@@ -192,11 +192,96 @@
 								<li><a data-ui-sref="typeahead">Typeahead</a></li>
 							</ul>
 						</li>
+						<li class="dropdown" data-uib-dropdown>
+							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
+								NgM-Material-Desigin <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a data-ui-sref="chartjs">Overview</a></li>
+								<li><a data-ui-sref="generic({chartType: 'BarChart'})"><i class="fa fa-bars"></i> Bar chart</a></li>
+								<li><a data-ui-sref="generic({chartType: 'ColumnChart'})"><i class="fa fa-bar-chart-o"></i> Column chart</a></li>
+								<li><a data-ui-sref="generic({chartType: 'PieChart'})"><i class="fa fa-circle"></i> Pie chart</a></li>
+								<li><a data-ui-sref="generic({chartType: 'LineChart'})">Line chart</a></li>
+								<li><a data-ui-sref="annotation">Annotation chart</a></li>
+								<li><a data-ui-sref="gauge">Gauge chart</a></li>
+								<li class="divider"></li>
+								<li class="dropdown-header">All together</li>
+								<li><a data-ui-sref="fat">Mutli charts sample</a></li>
+							</ul>
+						</li>
+						<li class="dropdown" data-uib-dropdown>
+							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
+								NgM-Material-Desigin <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a data-ui-sref="autocomplete">Autocomplete</a></li>
+								<li><a data-ui-sref="bottomsheet">Bottom Sheet</a></li>
+								<li><a data-ui-sref="button">Button</a></li>
+								<li><a data-ui-sref="card">Card</a></li>
+								<li><a data-ui-sref="checkbox">Checkbox</a></li>
+								<li><a data-ui-sref="colors">Colors</a></li>
+								<li><a data-ui-sref="content">Content</a></li>
+								<li><a data-ui-sref="datepickermd">Datepicker</a></li>
+								<li><a data-ui-sref="dialogmd">Dialog</a></li>
+								<li><a data-ui-sref="divider">Divider</a></li>
+								<li><a data-ui-sref="fabactions">Fab. Actions</a></li>
+								<li><a data-ui-sref="fabspeeddial">Fab. Speeddial</a></li>
+								<li><a data-ui-sref="fabtoolbar">Fab. Toolbar</a></li>
+								<li><a data-ui-sref="gridlist">Grid List</a></li>
+								<li><a data-ui-sref="icon">Icon</a></li>
+								<li><a data-ui-sref="input">Input</a></li>
+								<li><a data-ui-sref="list">List</a></li>
+								<li><a data-ui-sref="menu">Menu</a></li>
+								<li><a data-ui-sref="menubar">Menu Bar</a></li>
+								<li><a data-ui-sref="navbar">Navigation Bar</a></li>
+								<li><a data-ui-sref="panel">Panel</a></li>
+								<li><a data-ui-sref="progresscir">Progress, Circular</a></li>
+								<li><a data-ui-sref="progresslin">Progress, Linear</a></li>
+								<li><a data-ui-sref="radiobutton">Radio Button</a></li>
+								<li><a data-ui-sref="select">Select</a></li>
+								<li><a data-ui-sref="showhide">Show/Hide</a></li>
+								<li><a data-ui-sref="sidenav">Side Navigation</a></li>
+								<li><a data-ui-sref="slider">Slider</a></li>
+								<li><a data-ui-sref="sticky">Sticky</a></li>
+								<li><a data-ui-sref="subheader">Subheader</a></li>
+								<li><a data-ui-sref="swipe">Swipe</a></li>
+								<li><a data-ui-sref="switch">Switch</a></li>
+								<li><a data-ui-sref="tabsmd">Tabs</a></li>
+								<li><a data-ui-sref="toast">Toast</a></li>
+								<li><a data-ui-sref="toolbarmd">Toolbar</a></li>
+								<li><a data-ui-sref="tooltipmd">Tooltip</a></li>
+								<li><a data-ui-sref="truncate">Truncate</a></li>
+								<li><a data-ui-sref="repeat">Virtual Repeat</a></li>
+								<li class="divider"></li>
+								<li class="dropdown-header">All together</li>
+								<li><a data-ui-sref="fat">Mutli charts sample</a></li>
+							</ul>
+						</li>
+						<li class="dropdown" data-uib-dropdown>
+							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
+								Angular-Widgets <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a data-ui-sref="widgets">Overview</a></li>
+								<li><a data-ui-sref="culture">i18n</a></li>
+								<li><a data-ui-sref="switchable">Switchable Grid</a></li>
+								<li><a data-ui-sref="localstorage">Localstorage</a></li>
+								<li><a data-ui-sref="masonry">Masonry</a></li>
+								<li><a data-ui-sref="editor">Editor</a></li>
+							</ul>
+						</li>
+						<li ng-class="{active: $state.includes('contacts')}">
+							<a ui-sref="contacts.list">Contacts</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="about">About</a>
+						</li>
 					</ul>
+					<p ui-view="hint" class="navbar-text pull-right"></p>
 				</nav>
-				<nav id='desktop_menu' class="visible-xs" data-collapse="!isCollapsed">
+				<nav id='desktop_menu' class="visible-xs" data-uib-collapse="!isCollapsed">
 					<ul class="nav navbar-nav">
-						<li data-ng-class="{active: $state.includes('contacts')}">
+						<li ng-class="{active: $state.includes('contacts')}">
 							<a data-ui-sref="contacts.list">Contacts</a>
 						</li>
 						<li data-ui-sref-active="active">
@@ -259,7 +344,7 @@
 
 				msos.console.info('Page index.html loaded!');
 
-				msos.require("app.start");
+				msos.require("demo.start");
 			}
 		);
 	</script>
