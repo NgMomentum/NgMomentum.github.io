@@ -43,8 +43,12 @@
 
 		/* Std MSOS CSS: notify popup */
 		#notify_container {
+			display: none;
 			position: absolute;
-			width: 18em;
+			left: 0;
+			top: 10em;
+			margin: auto;
+			width: 22em;
 			z-index: 9999;
 		}
 		.notify {
@@ -120,14 +124,14 @@
 </head>
 <body>
 
-	<noscript>
+	<noscript data-ng-ignore>
 		<h3 id="no_javascript">
 			<i class="fa fa-ban"></i> We're sorry, but this site requires JavaScript be enabled!
 		</h3>
 	</noscript>
 
 	<div id='body' class="ng-cloak">
-		<header class="navbar navbar-default navbar-fixed-top navbar-inner">
+		<header class="ngm_header navbar navbar-default navbar-fixed-top navbar-inner">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-uib-toggle="collapse" data-uib-target="#bs-example-navbar-collapse-3" data-ng-click="isCollapsed = !isCollapsed">
@@ -190,7 +194,7 @@
 								UI-Router Demo <b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a data-ui-sref="home">Home</a></li>
+								<li><a data-ui-sref="router">Overview</a></li>
 								<li><a data-ui-sref="contacts.list">Contacts</a></li>
 								<li><a data-ui-sref="about">About</a>
 							</ul>
@@ -213,30 +217,19 @@
 			</div>
 		</header>
 
-		<div class="header-placeholder"></div>
+		<div data-ng-ignore class="header-placeholder"></div>
 
 		<div id='ui_view' data-ui-view class="container"></div>
 
 		<div data-ui-view="hint" class="container"></div>
 
-		<footer class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-6">
-						<h4>NgMomentum - a Derivation of AngularJS</h4>
-						<p>
-							<a href="https://github.com/NgMomentum" title="NgMomentum Repositories">
-								<i class="fa fa-github"></i> NgM GitHub
-							</a>
-						</p>
-					</div>
-					<div class="col-xs-6">
-						<p class="state">$state name = {{ diagnostic_state.current.name }}</p>
-						<p class="state">$stateParams = {{ diagnostic_stateParams }}</p>
-						<p class="state">$state url = {{ diagnostic_state.$current.url.source }}</p>
-					</div>
-				</div>
-			</div>
+		<footer data-ng-ignore class="ngm_footer container">
+			<h4>
+				NgMomentum - a Derivation of AngularJS -
+				<a href="https://github.com/NgMomentum" title="NgMomentum Repositories">
+					<i class="fa fa-github"></i> NgM GitHub
+				</a>
+			</h4>
 		</footer>
 	</div>
 
@@ -245,7 +238,7 @@
 			function () {
 				"use strict";
 
-				msos.console.info('Page index.html loaded!');
+				msos.console.info("Page index.html loaded!");
 
 				msos.require("demo.start");
 			}
