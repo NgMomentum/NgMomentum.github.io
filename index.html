@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head data-ng-ignore>
 
 	<meta charset="utf-8" />
 	<meta name="handheldfriendly" content="true" />
@@ -11,110 +11,8 @@
 
 	<title>NgMomentum</title>
 
-    <style>
-		/* Prepare page */
-		body {
-			opacity: 1;
-			-webkit-transition: opacity 1s ease;
-			-moz-transition: opacity 1s ease;
-			transition: opacity 1s;
-		}
-
-        /* Std AngularJS CSS: Load in page so cloaking starts immediately */
-		[ng-cloak],
-		[data-ng-cloak],
-		[x-ng-cloak],
-		.ng-cloak,
-		.ng-hide:not(.ng-hide-animate) {
-			display: none !important;
-		}
-		ng\:form {
-			display: block;
-		}
-		.ng-cloak {
-			opacity: 0;
-		}
-		.ng-animate-shim{
-			visibility:hidden;
-		}
-		.ng-anchor{
-			position:absolute;
-		}
-
-		/* Std MSOS CSS: notify popup */
-		#notify_container {
-			display: none;
-			position: absolute;
-			left: 0;
-			top: 10em;
-			margin: auto;
-			width: 22em;
-			z-index: 9999;
-		}
-		.notify {
-			background-color: #111;
-			border-radius: 0.4em;
-			margin-bottom: 1em;
-			opacity: 0.9;
-			padding: 1.2em;
-		}
-		.notify:hover {
-			opacity: 1;
-		}
-		.notify_title {
-			font-weight: bold;
-		}
-		.notify_title,
-		.notify_msg {
-			color: #FFF;
-			font-size: larger;
-			margin-bottom: 0.4em;
-			padding: 0 0.4em;
-		}
-		.notify > i {
-			float: left;
-		}
-		.notify_display > button {
-			float: right;
-		}
-		.notify > i.info {
-			color: blue;
-		}
-		.notify > i.warning {
-			color: yellow;
-		}
-		.notify > i.error {
-			color: red;
-		}
-		.notify > i.success {
-			color: green;
-		}
-		.notify > i.loading {
-			color: orange;
-		}
-		.notify {
-			-webkit-box-shadow: 0 0 12px #999;
-					box-shadow: 0 0 12px #999;
-		}
-		.notify:hover {
-			-webkit-box-shadow: 0 0 12px #000;
-					box-shadow: 0 0 12px #000;
-		}
-
-		/* Std MSOS CSS: No JavaScript message */
-		#no_javascript {
-			background-color: #FFF;
-			border: 2px solid #999;
-			border-radius: 0.4em;
-			margin-left: auto;
-			margin-right: auto;
-			width: 60%;
-		}
-		#no_javascript > i {
-			color: red;
-		}
-    </style>
-
+	<!-- NgMomentum initial page setup -->
+	<link rel="stylesheet" type="text/css" href="./ngm/css/site.css">
 	<link rel='shortcut icon' href='./ngm/images/ngm.ico' />
 
 	<!-- NgMomentum scripts -->
@@ -175,7 +73,6 @@
 								<li><a data-ui-sref="typeahead">Typeahead</a></li>
 							</ul>
 						</li>
-
 						<li class="dropdown" data-uib-dropdown>
 							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
 								Ng Widgets Demo<b class="caret"></b>
@@ -183,10 +80,15 @@
 							<ul class="dropdown-menu">
 								<li><a data-ui-sref="widgets">Overview</a></li>
 								<li><a data-ui-sref="culture">i18n</a></li>
-								<li><a data-ui-sref="switchable">Switchable Grid</a></li>
+								<li><a data-ui-sref="smarttable">SmartTable</a></li>
+								<li><a data-ui-sref="ngreacttable">NgReact Table</a></li>
+								<li><a data-ui-sref="tictactoe">NgReact TicTacToe</a></li>
 								<li><a data-ui-sref="localstorage">Localstorage</a></li>
 								<li><a data-ui-sref="masonry">Masonry</a></li>
-								<li><a data-ui-sref="editor">Editor</a></li>
+								<li><a data-ui-sref="editor">Editor Demo</a></li>
+								<li><a data-ui-sref="editor2">Editor 2nd Demo</a></li>
+								<li><a data-ui-sref="editor3">Editor 3rd Demo</a></li>
+								<li><a data-ui-sref="visualizer">UI-Router Visualizer</a></li>
 							</ul>
 						</li>
 						<li class="dropdown" data-uib-dropdown>
@@ -203,25 +105,15 @@
 				</nav>
 				<nav class="visible-xs" data-uib-collapse="!isCollapsed">
 					<ul class="nav navbar-nav">
-						<li ng-class="{active: $state.includes('contacts')}">
-							<a data-ui-sref="contacts.list">Contacts</a>
-						</li>
-						<li data-ui-sref-active="active">
-							<a data-ui-sref="about">About</a>
-						</li>
-						<li>
-							<a data-ui-sref="home" data-ng-click="isCollapsed = !isCollapsed"><i class="fa fa-home"></i> Home</a>
-						</li>
+						<li><a data-ui-sref="directive_menu" ng-click="isCollapsed = !isCollapsed">NgM-UI-Bootstrap</a></li>
+						<li><a data-ui-sref="widgets_menu" ng-click="isCollapsed = !isCollapsed">Ng Widgets Demo</a></li>
+						<li><a data-ui-sref="router_menu" ng-click="isCollapsed = !isCollapsed">UI-Router Demo</a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 
-		<div data-ng-ignore class="header-placeholder"></div>
-
-		<div id='ui_view' data-ui-view class="container"></div>
-
-		<div data-ui-view="hint" class="container"></div>
+		<div id='ui_view' data-ui-view class="ngm_page container">ui-view not populated (no state is activated)</div>
 
 		<footer data-ng-ignore class="ngm_footer container">
 			<h4>
