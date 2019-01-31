@@ -12,7 +12,7 @@
 	<title>NgMomentum Debug</title>
 
 	<!-- NgMomentum initial page setup -->
-	<link rel="stylesheet" type="text/css" href="./ngm/css/site.css">
+	<link rel="stylesheet" type="text/css" href="./ngm/demo/site.css">
 	<link rel='shortcut icon' href='./ngm/images/ngm.ico' />
 
 	<!-- NgMomentum scripts -->
@@ -30,135 +30,29 @@
 
 	<div id='body' class="ng-cloak">
 		<header class="ngm_header navbar navbar-default navbar-fixed-top navbar-inner">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-uib-toggle="collapse" data-uib-target="#bs-example-navbar-collapse-3" data-ng-click="isCollapsed = !isCollapsed">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand visible-xs" data-ui-sref="home">NgMomentum</a>
-				</div>
-				<nav class="hidden-xs">
-					<ul class="nav navbar-nav">
-						<a data-ui-sref="home" role="button" class="navbar-brand">
-							NgMomentum
-						</a>
-						<li class="dropdown" data-uib-dropdown>
-							<a role="button" class="dropdown-uib-toggle" data-uib-dropdown-toggle>
-								NgM-UI-Bootstrap <b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a data-ui-sref="bootstrap">Overview</a></li>
-								<li><a data-ui-sref="accordion">Accordion</a></li>
-								<li><a data-ui-sref="alert">Alert</a></li>
-								<li><a data-ui-sref="buttons">Buttons</a></li>
-								<li><a data-ui-sref="carousel">Carousel</a></li>
-								<li><a data-ui-sref="collapse">Collapse</a></li>
-								<li><a data-ui-sref="dateparser">Dateparser</a></li>
-								<li><a data-ui-sref="datepicker">Datepicker</a></li>
-								<li><a data-ui-sref="datepickerpopup">Date Popup</a></li>
-								<li><a data-ui-sref="dropdown">Dropdown</a></li>
-								<li><a data-ui-sref="modal">Modal</a></li>
-								<li><a data-ui-sref="pager">Pager</a></li>
-								<li><a data-ui-sref="pagination">Pagination</a></li>
-								<li><a data-ui-sref="popover">Popover</a></li>
-								<li><a data-ui-sref="position">Position</a></li>
-								<li><a data-ui-sref="progressbar">Progressbar</a></li>
-								<li><a data-ui-sref="rating">Rating</a></li>
-								<li><a data-ui-sref="tabs">Tabs</a></li>
-								<li><a data-ui-sref="timepicker">Timepicker</a></li>
-								<li><a data-ui-sref="tooltip">Tooltip</a></li>
-								<li><a data-ui-sref="typeahead">Typeahead</a></li>
-							</ul>
-						</li>
-						<li class="dropdown" data-uib-dropdown>
-							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
-								NgM-Material-Design <b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a data-ui-sref="material">Overview</a></li>
-								<li><a data-ui-sref="autocomplete">Autocomplete</a></li>
-								<li><a data-ui-sref="bottomsheet">Bottom Sheet</a></li>
-								<li><a data-ui-sref="button">Button</a></li>
-								<li><a data-ui-sref="card">Card</a></li>
-								<li><a data-ui-sref="checkbox">Checkbox</a></li>
-								<li><a data-ui-sref="chips">Chips</a></li>
-								<li><a data-ui-sref="colors">Colors</a></li>
-								<li><a data-ui-sref="content">Content</a></li>
-								<li><a data-ui-sref="datepickermd">Datepicker</a></li>
-								<li><a data-ui-sref="dialogmd">Dialog</a></li>
-								<li><a data-ui-sref="divider">Divider</a></li>
-								<li><a data-ui-sref="fabspeeddial">FAB Speeddial</a></li>
-								<li><a data-ui-sref="fabtoolbar">FAB Toolbar</a></li>
-								<li><a data-ui-sref="gridlist">Grid List</a></li>
-								<li><a data-ui-sref="icon">Icon</a></li>
-								<li><a data-ui-sref="input">Input</a></li>
-								<li><a data-ui-sref="list">List</a></li>
-								<li><a data-ui-sref="menu">Menu</a></li>
-								<li><a data-ui-sref="menubar">Menu Bar</a></li>
-								<li><a data-ui-sref="navbar">Nav Bar</a></li>
-								<li><a data-ui-sref="panel">Panel</a></li>
-								<li><a data-ui-sref="progresscir">Progress, Circular</a></li>
-								<li><a data-ui-sref="progresslin">Progress, Linear</a></li>
-								<li><a data-ui-sref="radio">Radio Button</a></li>
-								<li><a data-ui-sref="select">Select</a></li>
-								<li><a data-ui-sref="sidenav">Sidenav</a></li>
-								<li><a data-ui-sref="slider">Slider</a></li>
-								<li><a data-ui-sref="subheader">Subheader</a></li>
-								<li><a data-ui-sref="swipe">Swipe</a></li>
-								<li><a data-ui-sref="switch">Switch</a></li>
-								<li><a data-ui-sref="tabsmd">Tabs</a></li>
-								<li><a data-ui-sref="toast">Toast</a></li>
-								<li><a data-ui-sref="toolbarmd">Toolbar</a></li>
-								<li><a data-ui-sref="tooltipmd">Tooltip</a></li>
-								<li><a data-ui-sref="truncate">Truncate</a></li>
-								<li><a data-ui-sref="repeater">Virtual Repeat</a></li>
-								<li><a data-ui-sref="whiteframe">Whiteframe</a></li>
-							</ul>
-						</li>
-						<li class="dropdown" data-uib-dropdown>
-							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
-								NgM Widgets Demo<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a data-ui-sref="widgets">Overview</a></li>
-								<li><a data-ui-sref="culture">i18n</a></li>
-								<li><a data-ui-sref="smarttable">SmartTable</a></li>
-								<li><a data-ui-sref="ngreacttable">NgReact Table</a></li>
-								<li><a data-ui-sref="tictactoe">NgReact TicTacToe</a></li>
-								<li><a data-ui-sref="localstorage">Localstorage</a></li>
-								<li><a data-ui-sref="masonry">Masonry</a></li>
-								<li><a data-ui-sref="editor">Editor Demo</a></li>
-								<li><a data-ui-sref="editor2">Editor 2nd Demo</a></li>
-								<li><a data-ui-sref="editor3">Editor 3rd Demo</a></li>
-								<li><a data-ui-sref="visualizer">UI-Router Visualizer</a></li>
-							</ul>
-						</li>
-				<!--
-						<li class="dropdown" data-uib-dropdown>
-							<a role="button" class="dropdown-toggle" data-uib-dropdown-toggle>
-								UI-Router Demo <b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a data-ui-sref="router">Overview</a></li>
-								<li><a data-ui-sref="contacts.list">Contacts</a></li>
-								<li><a data-ui-sref="about">About</a>
-							</ul>
-						</li>
-				-->
-					</ul>
-				</nav>
-				<nav class="visible-xs" data-uib-collapse="!isCollapsed">
-					<ul class="nav navbar-nav">
-						<li><a data-ui-sref="directive_menu" ng-click="isCollapsed = !isCollapsed">NgM-UI-Bootstrap</a></li>
-						<li><a data-ui-sref="material_menu" ng-click="isCollapsed = !isCollapsed">NgM Material Design</a></li>
-						<li><a data-ui-sref="widgets_menu" ng-click="isCollapsed = !isCollapsed">Ng Widgets Demo</a></li>
-						<li><a data-ui-sref="router_menu" ng-click="isCollapsed = !isCollapsed">UI-Router Demo</a></li>
-					</ul>
-				</nav>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-uib-toggle="collapse" data-uib-target="#bs-example-navbar-collapse-3" data-ng-click="isCollapsed = !isCollapsed">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand visible-xs" data-ui-sref="home">NgMomentum</a>
 			</div>
+			<nav class="hidden-xs">
+				<ul class="nav navbar-nav">
+					<a data-ui-sref="home" role="button" class="navbar-brand">
+						NgMomentum
+					</a>
+					<bootstrap-dropdown></bootstrap-dropdown>
+					<material-dropdown></material-dropdown>
+					<widgets-dropdown></widgets-dropdown>
+					<googlechart-dropdown></googlechart-dropdown>
+				</ul>
+			</nav>
+			<nav class="visible-xs" data-uib-collapse="!isCollapsed">
+				<collapse-menu></collapse-menu>
+			</nav>
 		</header>
 
 		<div id='ui_view' data-ui-view class="ngm_page container">ui-view not populated (no state is activated)</div>
@@ -178,7 +72,7 @@
 			function () {
 				"use strict";
 
-				msos.console.info("Page index.html loaded!");
+				msos.console.info("Page debug.html loaded!");
 
 				msos.require("demo.start");
 			}
